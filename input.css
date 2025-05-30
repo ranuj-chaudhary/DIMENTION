@@ -15,18 +15,19 @@
 
   /* Gradients */
   /* Text Gradeints */
-  --text-gradient-two-colors: linear-gradient(
-    3.72deg,
-    rgba(240, 238, 250, 0.8) 3.05%,
-    #e1e8ff 96.95%
-  );
+  --text-gray: #7a7d96;
 
-  --text-gradient-three-colors: linear-gradient(
-    90deg,
-    #080823 0%,
-    #49496e 50%,
-    #080823 100%
-  );
+  --text-gradient-two-colors: linear-gradient(
+      3.72deg,
+      rgba(240, 238, 250, 0.8) 3.05%,
+      #e1e8ff 96.95%
+    );
+    --text-gradient-three-colors: linear-gradient(
+      90deg,
+      #080823 0%,
+      #49496e 50%,
+      #080823 100%
+    );
 
   --text-gradient-four-colors: linear-gradient(
     90deg,
@@ -52,6 +53,11 @@
     rgba(43, 50, 78, 0) 100%
   );
 
+  --background-dark-gradient-two-colors: linear-gradient(
+    180deg,
+    #13142d 0%,
+    #191a34 100%
+  );
   --background-gradient-three-colors: linear-gradient(
     95.07deg,
     #a66bff 4.59%,
@@ -85,7 +91,7 @@
 }
 /* Borders */
 .custom-thin-border {
-  @apply border-[0.8px] border-gray-800;
+  @apply border-[0.8px] border-[#1C1D36];
 }
 /* .thin-border {
   @apply border-gray-400 border-2;
@@ -119,11 +125,20 @@
 }
 
 /*Background Gradients*/
+
+.background-gradient-two-colors {
+  background: var(--background-gradient-two-colors);
+}
+.background-dark-gradient-two-colors {
+  background: var(--background-dark-gradient-two-colors);
+}
+
 .background-gradient-three-colors {
   background: var(--background-gradient-three-colors);
 }
-.background-gradient-two-colors {
-  background: var(--background-gradient-two-colors);
+
+.background-gradient-four-colors {
+  background: var(--background-gradient-four-colors);
 }
 
 /* ################# Section Container ##################### */
@@ -209,8 +224,6 @@
   box-shadow: 10px 20px 90px 0px #ffffff05 inset;
 }
 
-
-
 /* utilities */
 
 @layer utilities {
@@ -224,7 +237,7 @@
       #ff008fff 96%,
       #fca36e 98%
     );
-    @apply animate-circle-spin-clockwise absolute left-[-25%] top-[-25%] h-[150%] w-[150%] content-[''];
+    @apply absolute left-[-25%] top-[-25%] h-[150%] w-[150%] animate-circle-spin-clockwise content-[''];
   }
   .circle-small::before {
     background-size: 100% 100%;
@@ -236,7 +249,7 @@
       #fca36e 98%
     );
 
-    @apply animate-circle-spin-anticlockwise absolute left-[-25%] top-[-25%] h-[150%] w-[150%] content-[''];
+    @apply absolute left-[-25%] top-[-25%] h-[150%] w-[150%] animate-circle-spin-anticlockwise content-[''];
   }
   /* Button Animation */
   /* Act as a border */
@@ -259,4 +272,93 @@
   .card-content {
     @apply absolute left-[2px] top-[2px] h-[calc(100%-2px)] w-[calc(100%-2px)] rounded-md bg-[#080823];
   }
+}
+
+/*Card Section Spinning Wheel  */
+
+.icon-rotation-anticlockwise {
+  animation: rotate-clockwise 20s linear infinite;
+}
+
+.icon-rotation-clockwise {
+  animation: rotate-anti-clockwise 20s linear infinite;
+  transform-origin: center;
+}
+.outer-container {
+  box-shadow: 0px 0px 100px 60px rgba(126, 8, 126, 0.097) inset;
+}
+.overlay-container-inset-shadow {
+  box-shadow: 0px 0px 100px 60px rgba(126, 8, 126, 0.097) inset;
+}
+
+@keyframes rotate-clockwise {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-anti-clockwise {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.left-center-figma-icon {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.top-center-left-github-icon {
+  position: absolute;
+  top: 32px;
+  left: 45px;
+  transform: translate(-50%, -50%);
+}
+.top-center-circle-threeline-icon {
+  position: absolute;
+  top: 144px;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+.top-bottom-half-cloud-icon {
+  position: absolute;
+  bottom: 45px;
+  left: 32px;
+  transform: translate(-50%, 50%);
+}
+.bottom-left-center-neural-icon {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+}
+.bottom-right-center-train-icon {
+  position: absolute;
+  bottom: 45px;
+  right: 32px;
+  transform: translate(50%, 50%);
+}
+.top-right-center-triangle-icon {
+  position: absolute;
+  top: 144px;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+.top-right-center-google-icon {
+  position: absolute;
+  top: 32px;
+  right: 45px;
+  transform: translate(50%, -50%);
+}
+.center-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
